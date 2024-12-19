@@ -7,38 +7,75 @@ const og_ctx = original_img.getContext("2d");
 const df_ctx = diff_img.getContext("2d");
 console.log(og_ctx)
 
+let og_img;
+let df_img;
+
 /**
  * Loads and draws the images from the game_data object
  */
 function loadImages() {
-    const og_img = new Image();
-    const df_img = new Image();
+    og_img = new Image();
+    df_img = new Image();
 
     og_img.src = game_data.images.image1;
     df_img.src = game_data.images.image2;
 
     og_img.onload = () => {
-        original_img.width = og_img.naturalWidth;
-        original_img.height = og_img.naturalHeight;
-        og_ctx.drawImage(og_img, 0, 0);
+        drawImageOnCanvas(og_img, original_img, og_ctx);
     }
 
     df_img.onload = () => {
-        diff_img.width = df_img.naturalWidth;
-        diff_img.height = df_img.naturalHeight;
-        df_ctx.drawImage(df_img, 0, 0);
+        drawImageOnCanvas(df_img, diff_img, df_ctx);
     }
 }
 
 loadImages();
 
 /**
+ * draws the image on canvas
+ * @param {HTMLImageElement} img image to be drawn
+ * @param {HTMLCanvasElement} canvas the canvas element on which the image will be drawn
+ * @param {object} ctx the context of the canvas
+ */
+function drawImageOnCanvas(img, canvas, ctx) {
+
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    ctx.drawImage(img, 0, 0);
+
+    // if (img.naturalWidth > img.naturalHeight) {
+    //     let img_width = canvas.width;
+    //     let img_height = canvas.width * aspect_ratio;
+    //     canvas.height = img_height;
+    //     ctx.drawImage(img, 0, 0, img_width, img_height);
+    // } 
+}
+
+
+/**
+ * convert screen coordinates to canvas coordinates
+ * @param {float} x screen x-coordinate
+ * @param {float} y screen y-coordinate
+ * @returns {Array<float>}
+ */
+function screenToCanvas(x, y) {
+    let canvas_computed_style = window.getComputedStyle(original_img);
+    let canvas_width = parseInt(canvas_computed_style.width, 10);
+    let canvas_height = parseInt(canvas_computed_style.height, 10);
+
+    let img_to_canvas_width_ratio = og_img.naturalWidth / canvas_width;
+    let img_to_canvas_height_ratio = og_img.naturalHeight / canvas_height;
+
+    return [x*img_to_canvas_width_ratio, y*img_to_canvas_height_ratio];
+}
+
+/**
  * handles the differnce check for the clicks on the images
  * @param {Event} e 
  */
 function handleImgClick(e) {
-    const clickX = e.offsetX;
-    const clickY = e.offsetY;
+    const [clickX, clickY] = screenToCanvas(e.offsetX, e.offsetY);
+    console.log("Original:", e.offsetX, e.offsetY);
     console.log(clickX, clickY);
 
     for (let diff of game_data.differences) {
