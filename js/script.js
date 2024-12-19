@@ -5,6 +5,7 @@ const diff_img = document.getElementById("diff");
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
 const df_ctx = diff_img.getContext("2d");
+console.log(og_ctx)
 
 /**
  * Loads and draws the images from the game_data object
@@ -43,6 +44,7 @@ function handleImgClick(e) {
     for (let diff of game_data.differences) {
         if (checkBoundingBox(clickX, clickY, diff)) {
             console.log("Spotted");
+            highlightDiff(diff);
         }
     }
 }
@@ -62,3 +64,24 @@ function checkBoundingBox(x, y, box) {
 // add event listeners for the click checks
 original_img.addEventListener("click", handleImgClick);
 diff_img.addEventListener("click", handleImgClick);
+
+
+/**
+ * highlights the difference on both images
+ * @param {JSON} box dimensions of the box containing the difference
+ */
+function highlightDiff(box) {
+    drawBox(og_ctx, box);
+    drawBox(df_ctx, box);
+}
+
+
+/**
+ * draws a box with provided dimensions
+ * @param {object} ctx context of the canvas on which the box will be drawn
+ * @param {JSON} box the box dimensions
+ */
+function drawBox(ctx, box) {
+    ctx.fillStyle = "red";
+    ctx.fillRect(box.x, box.y, box.width, box.height);
+}
