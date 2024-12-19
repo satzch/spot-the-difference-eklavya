@@ -6,7 +6,20 @@
     <title>Spot The Difference</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="flex-center">
+    <img id="home-background" src="./test/img/bg1.jpg">
+
+    <div id="header" class="flex-center">
+        <div id="score" class="flex-center">2 / 5</div>
+        <div id="timer" class="flex-center">1:00</div>
+    </div>
+
+    <div id="canvas-container" class="flex-center">
+        <canvas id="original"></canvas>
+        <canvas id="diff"></canvas>
+    </div>
+
     <script src="./js/script.js" defer></script>
+
 </body>
 </html>
