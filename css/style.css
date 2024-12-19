@@ -58,7 +58,7 @@ body {
     gap: min(0.1vw, 0.1vh);
 }
 
-#canvas-container img {
+#canvas-container canvas {
     background-color: black;
     max-width: min(720px, 45vw);
     max-height: min(600px, 70vh);
