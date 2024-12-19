@@ -6,7 +6,9 @@ const diff_img = document.getElementById("diff");
 const og_ctx = original_img.getContext("2d");
 const df_ctx = diff_img.getContext("2d");
 
-// Load the image
+/**
+ * Loads and draws the images from the game_data object
+ */
 function loadImages() {
     const og_img = new Image();
     const df_img = new Image();
@@ -28,3 +30,35 @@ function loadImages() {
 }
 
 loadImages();
+
+/**
+ * handles the differnce check for the clicks on the images
+ * @param {Event} e 
+ */
+function handleImgClick(e) {
+    const clickX = e.offsetX;
+    const clickY = e.offsetY;
+    console.log(clickX, clickY);
+
+    for (let diff of game_data.differences) {
+        if (checkBoundingBox(clickX, clickY, diff)) {
+            console.log("Spotted");
+        }
+    }
+}
+
+/**
+ * returns true if (x, y) lies within the box dimensions, otherwise return false
+ * @param {float} x x-coordinate of the point to be checked
+ * @param {float} y y-coordinate of the point to be checked
+ * @param {JSON} box the bounding box inside which the point must lie to return true
+ * 
+ * box dimensions structure: { x: 0, y: 0, width: 10, height: 10 }
+ */
+function checkBoundingBox(x, y, box) {
+    return (box.x < x && box.x + box.width > x && box.y < y && box.y + box.height > y);
+}
+
+// add event listeners for the click checks
+original_img.addEventListener("click", handleImgClick);
+diff_img.addEventListener("click", handleImgClick);
