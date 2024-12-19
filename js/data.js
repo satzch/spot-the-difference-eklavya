@@ -7,5 +7,9 @@ const game_data = {
     },
     "differences": [
         { x: 115, y: 227, width: 60, height: 160 },
+        { x: 70, y: 660, width: 60, height: 70 },
+        { x: 386, y: 414, width: 132, height: 82 },
+        { x: 630, y: 780, width: 180, height: 110 },
+        { x: 800, y: 280, width: 135, height: 60 },
     ]
 }

@@ -2,6 +2,8 @@
 const original_img = document.getElementById("original");
 const diff_img = document.getElementById("diff");
 
+const score = document.getElementById("score");
+
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
 const df_ctx = diff_img.getContext("2d");
@@ -9,6 +11,9 @@ console.log(og_ctx)
 
 let og_img;
 let df_img;
+let score_point = 0;
+
+updateScore();
 
 /**
  * Loads and draws the images from the game_data object
@@ -81,7 +86,13 @@ function handleImgClick(e) {
     for (let diff of game_data.differences) {
         if (checkBoundingBox(clickX, clickY, diff)) {
             console.log("Spotted");
+
+            // highlight the correctly found difference
             highlightDiff(diff);
+
+            // increase the score
+            score_point++;
+            updateScore();
         }
     }
 }
@@ -123,4 +134,11 @@ function drawBox(ctx, box) {
     ctx.lineJoin = "round";
     ctx.strokeStyle = "red";
     ctx.strokeRect(box.x, box.y, box.width, box.height);
+}
+
+/**
+ * show the score on the UI dom for score
+ */
+function updateScore() {
+    score.innerHTML = `${score_point} / ${game_data.differences.length}`;
 }
