@@ -58,10 +58,10 @@ body {
     gap: min(0.1vw, 0.1vh);
 }
 
-#canvas-container canvas {
+#canvas-container img {
     background-color: black;
-    width: min(720px, 45vw);
-    height: min(500px, 70vh);
+    max-width: min(720px, 45vw);
+    max-height: min(600px, 70vh);
 
     border: 2px solid orange;
     border-radius: min(10px, 1vw, 1vh);
