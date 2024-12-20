@@ -39,6 +39,57 @@ body {
     display: none;
 }
 
+
+#home {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+}
+
+#home-header {
+    width: 100%;
+    height: 15%;
+    background-color: blue;
+}
+
+#heading {
+    text-align: center;
+    font-family: "Lonely Coffee";
+    font-size: min(6vw, 6vh);
+}
+
+#home-levels {
+    width: 100%;
+    height: 80%;
+    background-color: cadetblue;
+
+    padding: min(6vw, 6vh) min(12vw, 12vh);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min(25vw, 25vh));
+    grid-auto-rows: min-content;
+    align-items: center;
+    gap: min(4vw, 4vh);
+}
+
+.level-box {
+    width: min(25vw, 25vh);
+    height: min(25vw, 25vh);
+    background-color: #c38e2d;
+    background: url("../test/Blue/button_square_flat.svg");
+    background-size: contain;
+    font-family: "Lonely Coffee";
+    font-size: min(8vw, 8vh);
+}
+
+
+
+
+#game {
+    width: 100%;
+    height: 100%;
+}
+
 #header {
     /* position: absolute;
     top: 0; */
@@ -82,7 +133,6 @@ body {
     background-color: green;
     background-image: linear-gradient(#c38e2d, #fbd184);
 }
-
 
 
 #canvas-container {

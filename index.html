@@ -9,14 +9,27 @@
 <body class="flex-center">
     <img id="home-background" src="./test/img/bg1.jpg">
 
-    <div id="header" class="flex-center">
-        <div id="score" class="flex-center">2 / 5</div>
-        <div id="time-taken" class="flex-center">1:00</div>
+    <div id="home">
+        <div id="home-header" class="flex-center">
+            <h1 id="heading">Spot the Difference</h1>
+        </div>
+        <div id="home-levels">
+            <div class="level-box flex-center">1</div>
+            <div class="level-box flex-center">2</div>
+            <div class="level-box flex-center">3</div>
+        </div>
     </div>
 
-    <div id="canvas-container" class="flex-center">
-        <canvas id="original"></canvas>
-        <canvas id="diff"></canvas>
+    <div id="game" class="hide">
+        <div id="header" class="flex-center">
+            <div id="score" class="flex-center">2 / 5</div>
+            <div id="time-taken" class="flex-center">1:00</div>
+        </div>
+    
+        <div id="canvas-container" class="flex-center">
+            <canvas id="original"></canvas>
+            <canvas id="diff"></canvas>
+        </div>
     </div>
 
     <div id="message-success" class="flex-center hide">
