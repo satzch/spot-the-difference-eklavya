@@ -10,6 +10,7 @@ const score = document.getElementById("score");
 const time_tracker = document.getElementById("time-taken");
 const success_message = document.getElementById("message-success");
 const home_btn = document.getElementById("home-btn");
+const back_home_btn = document.getElementById("back-home-btn");
 
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
@@ -322,3 +323,4 @@ function returnToHome() {
 
 // add event listener to home button
 home_btn.addEventListener("click", returnToHome);
+back_home_btn.addEventListener("click", returnToHome);

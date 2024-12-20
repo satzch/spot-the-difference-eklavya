@@ -91,14 +91,31 @@ body {
 }
 
 #header {
-    /* position: absolute;
-    top: 0; */
     width: 100vw;
     height: min(15vw, 15vh);
     /* background-color: blue; */
 
-    gap: min(4vw, 4vh);
+    padding: 0 min(5vw, 5vh);
+
     z-index: 10;
+}
+
+#game-header-column-left {
+    flex-grow: 0.9;
+}
+
+#back-home-btn {
+    width: min(6vw, 6vh);
+    cursor: pointer;
+}
+
+#game-header-column-right {
+    flex-grow: 1;
+}
+
+#game-info {
+    flex-grow: 1;
+    gap: min(4vw, 4vh);
 }
 
 #score, #time-taken, #home-btn {
