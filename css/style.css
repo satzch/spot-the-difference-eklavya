@@ -120,17 +120,23 @@ body {
 
 #score, #time-taken, #home-btn {
     position: relative;
-    min-width: min(30vw, 30vh);
+    min-width: min(40vw, 40vh);
     height: min(8vw, 8vh);
 
     background-color: red;
     background-image: linear-gradient(#C32F27, rgb(255, 126, 126));
     /* outline: min(1vw, 1vh) solid #780116; */
     border-radius: min(3vw, 3vh);
+    padding: min(0.5vw, 0.5vh) min(3vw, 3vh);
 
     font-family: "Lonely Coffee";
-    font-size: min(6vw, 6vh, 48px);
+    font-size: min(4vw, 4vh, 32px);
     color: rgb(255, 230, 230);
+}
+
+#score > span,  #time-taken > span{
+    font-size: min(6vw, 6vh, 48px);
+    margin-left: min(1vw, 1vh);
 }
 
 #score:after, #time-taken:after, #home-btn:after {
@@ -146,9 +152,19 @@ body {
 
 #time-taken {
     /* min-width: min(10vw, 10vh); */
-    padding: min(0.5vw, 0.5vh) min(3vw, 3vh);
     background-color: green;
     background-image: linear-gradient(#c38e2d, #fbd184);
+}
+
+
+#game-title {
+    width: 100%;
+    height: min(6vw, 6vh);
+    background-color: rgb(149, 149, 255);
+
+    text-align: center;
+    font-family: "Lonely Coffee";
+    font-size: min(3.5vw, 3.5vh, 28px);
 }
 
 

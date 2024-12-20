@@ -6,11 +6,12 @@ const levels = document.getElementById("home-levels");
 const original_img = document.getElementById("original");
 const diff_img = document.getElementById("diff");
 
-const score = document.getElementById("score");
-const time_tracker = document.getElementById("time-taken");
+const score = document.getElementById("score-point");
+const time_tracker = document.getElementById("time-taken-text");
 const success_message = document.getElementById("message-success");
 const home_btn = document.getElementById("home-btn");
 const back_home_btn = document.getElementById("back-home-btn");
+const game_title = document.getElementById("game-title-text");
 
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
@@ -254,6 +255,9 @@ function startGame() {
     total_differences = game_data.differences.length;
     score_point = 0;
     time_taken = 0;
+
+    // update the title
+    game_title.innerText = game_data.gameTitle;
 
     // show the initial score
     updateScore();
