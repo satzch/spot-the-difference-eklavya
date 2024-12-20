@@ -15,6 +15,7 @@ const og_ctx = original_img.getContext("2d");
 const df_ctx = diff_img.getContext("2d");
 console.log(og_ctx)
 
+let game_data; // the selected level data from the JSON data
 let og_img;
 let df_img;
 let score_point = 0;
@@ -40,8 +41,6 @@ function loadImages() {
         drawImageOnCanvas(df_img, diff_img, df_ctx);
     }
 }
-
-loadImages();
 
 /**
  * draws the image on canvas
@@ -272,21 +271,32 @@ function startGame() {
 
 
 /**
- * add the levels from the JSON
+ * add the passed level to the levels list
+ * @param {object} level
  */
-function addLevels() {
+function addLevel(level) {
     let elm = document.createElement("div");
     elm.classList.add("level-box");
     elm.classList.add("flex-center");
-    elm.innerText = game_data.level;
+    elm.innerText = level.level;
     levels.appendChild(elm);
 
     elm.addEventListener("click", () => {
         // choose the level
+        game_data = level;
 
         // start the game
         startGame();
     })
 }
 
-addLevels();
+/**
+ * add all the levels from the JSON
+ */
+function addAllLevels() {
+    for (let level of game_data_all) {
+        addLevel(level);
+    }
+}
+
+addAllLevels();
