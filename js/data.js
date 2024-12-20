@@ -1,5 +1,6 @@
 // For testing using JS object as JSON
 const game_data = {
+    "level": 1,
     "gameTitle": "Spot the Difference - Animals",
     "images": {
         "image1": "test/img/og2.jpg",

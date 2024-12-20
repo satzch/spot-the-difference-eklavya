@@ -1,6 +1,7 @@
 // Get the DOM elements
 const home = document.getElementById("home");
 const game = document.getElementById("game");
+const levels = document.getElementById("home-levels");
 
 const original_img = document.getElementById("original");
 const diff_img = document.getElementById("diff");
@@ -268,3 +269,24 @@ function startGame() {
 }
 
 // startGame();
+
+
+/**
+ * add the levels from the JSON
+ */
+function addLevels() {
+    let elm = document.createElement("div");
+    elm.classList.add("level-box");
+    elm.classList.add("flex-center");
+    elm.innerText = game_data.level;
+    levels.appendChild(elm);
+
+    elm.addEventListener("click", () => {
+        // choose the level
+
+        // start the game
+        startGame();
+    })
+}
+
+addLevels();
