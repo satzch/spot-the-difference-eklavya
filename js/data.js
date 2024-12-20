@@ -2,7 +2,7 @@
 let game_data_all;
 
 // fetch the JSON data and store it
-fetch("your url")
+fetch("https://raw.githubusercontent.com/satzch/storage/refs/heads/main/json/spot-difference.json")
     .then((response) => {
         if (!response.ok) {
             throw new Error("response not ok")

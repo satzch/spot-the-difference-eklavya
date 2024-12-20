@@ -1,0 +1,41 @@
+[
+    {
+        "level": 1,
+        "gameTitle": "Spot the Differences - Easter Egg",
+        "images": {
+            "image1": "test/img/easter-og.jpg",
+            "image2": "test/img/easter-diff.jpg"
+        },
+        "differences": [
+            { "x": 94, "y": 0, "width": 186,  "height": 168 },
+            { "x": 280, "y": 680, "width": 130,  "height": 100 },
+            { "x": 710, "y": 800, "width": 140,  "height": 90 },
+            { "x": 155, "y": 500, "width": 170,  "height": 90 },
+            { "x": 800, "y": 280, "width": 130,  "height": 120 },
+            { "x": 575, "y": 200, "width": 110,  "height": 105 },
+            { "x": 505, "y": 305, "width": 168,  "height": 127 },
+            { "x": 470, "y": 175, "width": 115,  "height": 95 },
+            { "x": 400, "y": 238, "width": 105,  "height": 100 }
+        ]
+    }, 
+    {
+        "level": 2,
+        "gameTitle": "Spot the Differences - Aliens",
+        "images": {
+            "image1": "test/img/aliens-og.jpg",
+            "image2": "test/img/aliens-diff.jpg"
+        },
+        "differences": [
+            { "x": 300, "y": 40, "width": 180,  "height": 168 },
+            { "x": 515, "y": 40, "width": 375,  "height": 230 },
+            { "x": 440, "y": 370, "width": 175,  "height": 170 },
+            { "x": 15, "y": 585, "width": 320,  "height": 195 },
+            { "x": 35, "y": 760, "width": 320,  "height": 170 },
+            { "x": 320, "y": 610, "width": 200,  "height": 170 },
+            { "x": 735, "y": 340, "width": 180,  "height": 150 },
+            { "x": 950, "y": 190, "width": 180,  "height": 92 },
+            { "x": 950, "y": 285, "width": 180,  "height": 110 },
+            { "x": 645, "y": 670, "width": 170,  "height": 125 }
+        ]
+    }
+]

@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "Lonely Coffee";
-    src: url("../test/font/lonely_coffee/Lonely Coffee.otf");
+    src: url("../assets/font/lonely_coffee/Lonely Coffee.otf");
 }
 
 html {
@@ -81,7 +81,7 @@ body {
     width: min(25vw, 25vh);
     height: min(25vw, 25vh);
     /* background-color: #c38e2d; */
-    background: url("../test/Blue/button_square_flat.svg");
+    background: url("../assets/img/button_square_flat.svg");
     background-size: contain;
     font-family: "Lonely Coffee";
     font-size: min(8vw, 8vh);
