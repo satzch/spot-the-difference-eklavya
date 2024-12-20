@@ -44,9 +44,9 @@ body {
     z-index: 10;
 }
 
-#score {
+#score, #time-taken {
     position: relative;
-    width: 200px;
+    min-width: min(30vw, 30vh);
     height: min(8vw, 8vh);
 
     background-color: red;
@@ -59,7 +59,7 @@ body {
     color: rgb(255, 230, 230);
 }
 
-#score:after{
+#score:after, #time-taken:after{
 	content: '';
 	position: absolute;
 	top: 2%;
@@ -70,12 +70,11 @@ body {
     border-radius: 20px;
 }
 
-#timer {
-    width: 200px;
-
+#time-taken {
+    /* min-width: min(10vw, 10vh); */
+    padding: min(0.5vw, 0.5vh) min(3vw, 3vh);
     background-color: green;
-
-    font-size: xx-large;
+    background-image: linear-gradient(#c38e2d, #fbd184);
 }
 
 #canvas-container {
