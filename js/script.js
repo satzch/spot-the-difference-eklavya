@@ -293,7 +293,7 @@ function addLevel(level) {
 
     elm.addEventListener("click", () => {
         // choose the level
-        game_data = level;
+        game_data = JSON.parse(JSON.stringify(level)); // deep copy the object
 
         // start the game
         startGame();
