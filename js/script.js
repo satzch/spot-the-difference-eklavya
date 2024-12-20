@@ -1,4 +1,7 @@
 // Get the DOM elements
+const home = document.getElementById("home");
+const game = document.getElementById("game");
+
 const original_img = document.getElementById("original");
 const diff_img = document.getElementById("diff");
 
@@ -17,8 +20,6 @@ let score_point = 0;
 let total_differences = 0;
 let time_taken = 0; // in seconds
 
-total_differences = game_data.differences.length;
-updateScore();
 
 /**
  * Loads and draws the images from the game_data object
@@ -119,10 +120,6 @@ function checkBoundingBox(x, y, box) {
     return (box.x < x && box.x + box.width > x && box.y < y && box.y + box.height > y);
 }
 
-// add event listeners for the click checks
-original_img.addEventListener("click", handleImgClick);
-diff_img.addEventListener("click", handleImgClick);
-
 
 /**
  * highlights the difference on both images
@@ -193,12 +190,6 @@ function getTimeString() {
     return time_string;
 }
 
-// initially show the time
-showTime(getTimeString());
-
-// update the time every second
-let time_interval = setInterval(updateTime, 1000);
-
 
 /**
  * show the success message overlay
@@ -209,7 +200,9 @@ function showSuccessMessage() {
     document.getElementById("message-time").innerHTML = `Time Taken: ${getTimeString()}`;
 }
 
-
+/**
+ * handles the game end state
+ */
 function gameEnd() {
 
     // remove the event listeners
@@ -224,3 +217,54 @@ function gameEnd() {
         showSuccessMessage();
     }, 2000);
 }
+
+/**
+ * hides the element passed
+ * @param {HTMLElement} elm the element to hide
+ */
+function hideElm(elm) {
+    if (elm)
+        elm.classList.add("hide")
+}
+
+/**
+ * shows the element passed if it was hidden
+ * @param {HTMLElement} elm the hidden element to show
+ */
+function showElm(elm) {
+    if (elm)
+        elm.classList.remove("hide");
+}
+
+/**
+ * handles starting the game and ui changes
+ */
+function startGame() {
+    // set the variables
+    total_differences = game_data.differences.length;
+    score_point = 0;
+    time_taken = 0;
+
+    // show the initial score
+    updateScore();
+    
+    // initially show the time
+    showTime(getTimeString());
+
+    // load and show the images
+    loadImages();
+
+    // add event listeners for the image click checks
+    original_img.addEventListener("click", handleImgClick);
+    diff_img.addEventListener("click", handleImgClick);
+
+    
+    // change the ui
+    hideElm(home);
+    showElm(game);
+
+    // start updating the time every second
+    time_interval = setInterval(updateTime, 1000);
+}
+
+// startGame();
