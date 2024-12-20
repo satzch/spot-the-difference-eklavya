@@ -313,8 +313,6 @@ function addAllLevels() {
     }
 }
 
-addAllLevels();
-
 /**
  * changes the ui to show the home screen
  */
