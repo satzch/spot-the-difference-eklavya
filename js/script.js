@@ -4,6 +4,7 @@ const diff_img = document.getElementById("diff");
 
 const score = document.getElementById("score");
 const time_tracker = document.getElementById("time-taken");
+const success_message = document.getElementById("message-success");
 
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
@@ -100,6 +101,8 @@ function handleImgClick(e) {
             // increase the score
             score_point++;
             updateScore();
+
+            if (score_point >= total_differences) showSuccessMessage();
         }
     }
 }
@@ -155,31 +158,39 @@ function updateScore() {
  * update the time
  */
 function updateTime() {
-    let seconds = time_taken % 60;
-    let minutes = Math.floor(time_taken / 60);
-    let hours = Math.floor(minutes / 60);
-    showTime(seconds, minutes, hours);
+    let time_string = getTimeString();
+    showTime(time_string);
     time_taken++;
 }
 
 
 /**
  * show the time in UI 
- * @param {Number | null} seconds 
- * @param {Number | null} minutes 
- * @param {Number | null} hours 
- * @returns 
  */
-function showTime(seconds = null, minutes = null, hours = null) {
-    if (seconds === null) return;
-    let time_string = "";
+function showTime(time_string) {
+    time_tracker.innerHTML = time_string;
+}
 
+/**
+ * returns the time as a string
+ * @param {Number} seconds 
+ * @param {Number} minutes 
+ * @param {Number} hours 
+ * @returns {string}
+ */
+function getTimeString() {
+    let seconds = time_taken % 60;
+    let minutes = Math.floor(time_taken / 60);
+    let hours = Math.floor(minutes / 60);
+
+    let time_string = "";
+    
     if (hours) 
         time_string += `${hours < 10 ? "0"+hours: hours}:`;
     
     time_string += `${minutes < 10 ? "0"+minutes: minutes}:${seconds < 10 ? "0"+seconds: seconds}`;
 
-    time_tracker.innerHTML = time_string;
+    return time_string;
 }
 
 // initially show the time
@@ -187,3 +198,13 @@ updateTime();
 
 // update the time every second
 setInterval(updateTime, 1000);
+
+
+/**
+ * show the success message overlay
+ */
+function showSuccessMessage() {
+    success_message.classList.remove("hide");
+    document.getElementById("message-score").innerHTML = `Score: ${score_point}/${total_differences}`;
+    document.getElementById("message-time").innerHTML = `Time Taken: ${getTimeString()}`;
+}
