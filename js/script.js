@@ -12,7 +12,9 @@ console.log(og_ctx)
 let og_img;
 let df_img;
 let score_point = 0;
+let total_differences = 0;
 
+total_differences = game_data.differences.length;
 updateScore();
 
 /**
@@ -87,6 +89,9 @@ function handleImgClick(e) {
         if (checkBoundingBox(clickX, clickY, diff)) {
             console.log("Spotted");
 
+            // remove the difference from the array
+            game_data.differences.splice(game_data.differences.indexOf(diff), 1);
+
             // highlight the correctly found difference
             highlightDiff(diff);
 
@@ -140,5 +145,5 @@ function drawBox(ctx, box) {
  * show the score on the UI dom for score
  */
 function updateScore() {
-    score.innerHTML = `${score_point} / ${game_data.differences.length}`;
+    score.innerHTML = `${score_point} / ${total_differences}`;
 }
