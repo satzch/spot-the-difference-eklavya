@@ -9,6 +9,7 @@ const diff_img = document.getElementById("diff");
 const score = document.getElementById("score");
 const time_tracker = document.getElementById("time-taken");
 const success_message = document.getElementById("message-success");
+const home_btn = document.getElementById("home-btn");
 
 // Get the canvas contexts
 const og_ctx = original_img.getContext("2d");
@@ -205,17 +206,25 @@ function showSuccessMessage() {
  */
 function gameEnd() {
 
+    pauseGameActions();
+
+    // show the success message after few seconds
+    setTimeout(() => {
+        showSuccessMessage();
+    }, 2000);
+}
+
+
+/**
+ * removes all game interactivity
+ */
+function pauseGameActions() {
     // remove the event listeners
     original_img.removeEventListener("click", handleImgClick);
     diff_img.removeEventListener("click", handleImgClick);
     
     // don't update the time now
     clearInterval(time_interval);
-
-    // show the success message after few seconds
-    setTimeout(() => {
-        showSuccessMessage();
-    }, 2000);
 }
 
 /**
@@ -300,3 +309,16 @@ function addAllLevels() {
 }
 
 addAllLevels();
+
+/**
+ * changes the ui to show the home screen
+ */
+function returnToHome() {
+    pauseGameActions();
+    hideElm(success_message);
+    hideElm(game);
+    showElm(home);
+}
+
+// add event listener to home button
+home_btn.addEventListener("click", returnToHome);
