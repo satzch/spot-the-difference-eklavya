@@ -102,7 +102,7 @@ function handleImgClick(e) {
             score_point++;
             updateScore();
 
-            if (score_point >= total_differences) showSuccessMessage();
+            if (score_point >= total_differences) gameEnd();
         }
     }
 }
@@ -158,9 +158,9 @@ function updateScore() {
  * update the time
  */
 function updateTime() {
+    time_taken++;
     let time_string = getTimeString();
     showTime(time_string);
-    time_taken++;
 }
 
 
@@ -194,10 +194,10 @@ function getTimeString() {
 }
 
 // initially show the time
-updateTime();
+showTime(getTimeString());
 
 // update the time every second
-setInterval(updateTime, 1000);
+let time_interval = setInterval(updateTime, 1000);
 
 
 /**
@@ -207,4 +207,20 @@ function showSuccessMessage() {
     success_message.classList.remove("hide");
     document.getElementById("message-score").innerHTML = `Score: ${score_point}/${total_differences}`;
     document.getElementById("message-time").innerHTML = `Time Taken: ${getTimeString()}`;
+}
+
+
+function gameEnd() {
+
+    // remove the event listeners
+    original_img.removeEventListener("click", handleImgClick);
+    diff_img.removeEventListener("click", handleImgClick);
+    
+    // don't update the time now
+    clearInterval(time_interval);
+
+    // show the success message after few seconds
+    setTimeout(() => {
+        showSuccessMessage();
+    }, 2000);
 }
