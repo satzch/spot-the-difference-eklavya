@@ -229,7 +229,7 @@ body {
     margin-top: 10%;
     border: none;
     transform: scale(1);
-    transition: scale 0.2s;
+    transition: transform 0.2s;
 }
 
 #home-btn:active {
@@ -240,7 +240,7 @@ body {
 
 @media (orientation: portrait) {
     #canvas-container {
-        background-color: blue;
+        /* background-color: blue; */
         flex-direction: column;
         margin-top: min(5vw, 5vh);
         gap: min(2vw, 2vh);
@@ -254,7 +254,7 @@ body {
     #home-levels {
         width: 100%;
         height: 80%;
-        background-color: cadetblue;
+        /* background-color: cadetblue; */
     
         padding: min(6vw, 6vh) min(6vw, 6vh);
     
