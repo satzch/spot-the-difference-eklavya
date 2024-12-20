@@ -140,9 +140,9 @@ function highlightDiff(box) {
  * @param {JSON} box the box dimensions
  */
 function drawBox(ctx, box) {
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 20;
     ctx.lineJoin = "round";
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "black";
     ctx.strokeRect(box.x, box.y, box.width, box.height);
 }
 

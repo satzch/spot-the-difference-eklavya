@@ -29,7 +29,7 @@ body {
     width: 100vw;
     height: 95vh;
     overflow: hidden;
-    background-color: whitesmoke;
+    background-color: rgb(230, 230, 230);
 
     flex-direction: column;
     justify-content: flex-start !important;
