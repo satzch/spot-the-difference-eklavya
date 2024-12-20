@@ -20,9 +20,10 @@ body {
     width: 100vw;
     height: 95vh;
     overflow: hidden;
-    background-color: aqua;
+    background-color: whitesmoke;
 
     flex-direction: column;
+    justify-content: flex-start !important;
 }
 
 
@@ -30,17 +31,18 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    /* width: 100%; */
+    display: none;
 }
 
 #header {
-    position: absolute;
-    top: 0;
-    width: 60vw;
-    height: 10vh;
-    background-color: blue;
+    /* position: absolute;
+    top: 0; */
+    width: 100vw;
+    height: min(15vw, 15vh);
+    /* background-color: blue; */
 
-    gap: 20px;
+    gap: min(4vw, 4vh);
     z-index: 10;
 }
 
@@ -52,7 +54,7 @@ body {
     background-color: red;
     background-image: linear-gradient(#C32F27, rgb(255, 126, 126));
     /* outline: min(1vw, 1vh) solid #780116; */
-    border-radius: 20px;
+    border-radius: min(3vw, 3vh);
 
     font-family: "Lonely Coffee";
     font-size: min(6vw, 6vh, 48px);
@@ -67,7 +69,7 @@ body {
 	width: calc(100% - 8%);
 	height: 50%;
 	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
-    border-radius: 20px;
+    border-radius: min(3vw, 3vh);
 }
 
 #time-taken {
@@ -77,8 +79,11 @@ body {
     background-image: linear-gradient(#c38e2d, #fbd184);
 }
 
+
+
 #canvas-container {
-    gap: min(0.1vw, 0.1vh);
+    margin-top: min(5vw, 5vh);
+    gap: min(0.8vw, 0.8vh);
 }
 
 #canvas-container canvas {
@@ -86,7 +91,7 @@ body {
     max-width: min(720px, 45vw);
     max-height: min(600px, 70vh);
 
-    border: 2px solid orange;
+    border: min(0.5vw, 0.5vh) solid orange;
     border-radius: min(10px, 1vw, 1vh);
     z-index: 10;
 }
