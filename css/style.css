@@ -9,6 +9,11 @@
     src: url("../test/font/lonely_coffee/Lonely Coffee.otf");
 }
 
+html {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
 
 .flex-center {
     display: flex;
@@ -80,6 +85,14 @@ body {
     background-size: contain;
     font-family: "Lonely Coffee";
     font-size: min(8vw, 8vh);
+
+    transform: scale(1);
+    transition: transform 0.1s;
+}
+
+.level-box:active {
+    transform: scale(0.9);
+    transition: transform 0.2s;
 }
 
 
@@ -107,6 +120,14 @@ body {
 #back-home-btn {
     width: min(6vw, 6vh);
     cursor: pointer;
+
+    transform: scale(1);
+    transition: transform 0.1s;
+}
+
+#back-home-btn:active {
+    transform: scale(0.9);
+    transition: transform 0.2s;
 }
 
 #game-header-column-right {
@@ -120,7 +141,7 @@ body {
 
 #score, #time-taken, #home-btn {
     position: relative;
-    min-width: min(40vw, 40vh);
+    min-width: min(38vw, 38vh);
     height: min(8vw, 8vh);
 
     background-color: red;
@@ -181,6 +202,8 @@ body {
     border: min(0.5vw, 0.5vh) solid orange;
     border-radius: min(10px, 1vw, 1vh);
     z-index: 10;
+
+    cursor: pointer;
 }
 
 
@@ -245,12 +268,13 @@ body {
     margin-top: 10%;
     border: none;
     transform: scale(1);
-    transition: transform 0.2s;
+    transition: transform 0.1s;
+    cursor: pointer;
 }
 
 #home-btn:active {
-    transform: scale(0.95);
-    transition: all 0.4s;
+    transform: scale(0.9);
+    transition: transform 0.2s;
 }
 
 
