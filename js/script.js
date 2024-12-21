@@ -326,3 +326,39 @@ function returnToHome() {
 // add event listener to home button
 home_btn.addEventListener("click", returnToHome);
 back_home_btn.addEventListener("click", returnToHome);
+
+
+// prevent highlighting of canvas when clicked
+original_img.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    original_img.focus();
+});
+original_img.addEventListener("selectstart", (event) => {
+    event.preventDefault();
+});
+original_img.addEventListener("touchdown", (event) => {
+    event.preventDefault();
+});
+original_img.addEventListener("touchmove", (event) => {
+    event.preventDefault();
+});
+original_img.addEventListener("touchend", (event) => {
+    event.preventDefault();
+});
+
+diff_img.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    diff_img.focus();
+});
+diff_img.addEventListener("selectstart", (event) => {
+    event.preventDefault();
+});
+diff_img.addEventListener("touchdown", (event) => {
+    event.preventDefault();
+});
+diff_img.addEventListener("touchmove", (event) => {
+    event.preventDefault();
+});
+diff_img.addEventListener("touchend", (event) => {
+    event.preventDefault();
+});
