@@ -2,17 +2,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 @font-face {
     font-family: "Lonely Coffee";
     src: url("../assets/font/lonely_coffee/Lonely Coffee.otf");
-}
-
-html {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
 }
 
 .flex-center {
@@ -283,12 +280,12 @@ body {
         /* background-color: blue; */
         flex-direction: column;
         margin-top: min(5vw, 5vh);
-        gap: min(2vw, 2vh);
+        gap: min(1.5vw, 1.5vh);
     }
 
     #canvas-container canvas {
         max-width: min(720px, 95vw);
-        max-height: min(600px, 50vh);
+        max-height: min(600px, 42vh);
     }
 
     #home-levels {
